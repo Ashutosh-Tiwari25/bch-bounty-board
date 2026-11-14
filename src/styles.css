@@ -1,0 +1,23 @@
+:root {
+  --bg: #0f1210;
+  --fg: #e9ede9;
+  --muted: #9aa59c;
+  --line: #27302a;
+  --accent: #0ac18e; /* BCH green */
+  font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+}
+body { margin: 0; background: var(--bg); color: var(--fg); }
+a { color: var(--accent); }
+.banner {
+  display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center;
+  padding: 8px 16px; font-size: 13px; border-bottom: 1px solid var(--line);
+  background: #141a16; color: var(--muted);
+}
+.banner strong { color: var(--accent); }
+.banner code { font-size: 12px; word-break: break-all; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+h1 { margin: 0 0 6px; font-size: 26px; }
+.sub { color: var(--muted); margin: 0 0 24px; }
+.card { border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+.card h2 { margin: 0 0 6px; font-size: 16px; }
