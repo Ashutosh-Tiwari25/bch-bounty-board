@@ -17,7 +17,7 @@ npm run dev
 ## Status
 
 - [x] Day 1: repo, spec, skeleton with BLAZE banner
-- [ ] Bounty create and list
+- [x] Day 2: bounty create, list and detail pages
 - [ ] Submissions and winner selection
 - [ ] One-transaction payout via WizardConnect
 - [ ] Mainnet payout

@@ -21,3 +21,39 @@ h1 { margin: 0 0 6px; font-size: 26px; }
 .sub { color: var(--muted); margin: 0 0 24px; }
 .card { border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
 .card h2 { margin: 0 0 6px; font-size: 16px; }
+
+/* --- Day 2: list, form, detail --- */
+.row-between { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.btn {
+  display: inline-block; background: var(--accent); color: #04140d; font-family: inherit; font-weight: 600; font-size: 14px; line-height: 1;
+  padding: 10px 16px; border-radius: 8px; border: 0; cursor: pointer; text-decoration: none;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.card.bounty { display: block; color: inherit; text-decoration: none; }
+.card.bounty:hover { border-color: var(--accent); }
+.bounty-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.prize { color: var(--accent); font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.prize.big { font-size: 22px; }
+.brief { color: var(--muted); margin: 6px 0 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.meta { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+.closed { color: #e07a5f; }
+.empty { text-align: center; padding: 32px 16px; }
+.empty p { color: var(--muted); }
+.back { display: inline-block; margin-bottom: 16px; font-size: 14px; text-decoration: none; }
+.form { display: grid; gap: 6px; }
+.form label { font-size: 13px; color: var(--muted); margin-top: 10px; }
+.form input, .form textarea {
+  background: #0b0e0c; color: var(--fg); border: 1px solid var(--line); border-radius: 6px;
+  padding: 10px; font: inherit; width: 100%; box-sizing: border-box;
+}
+.form .btn { margin-top: 16px; justify-self: start; }
+.two { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
+.hint { font-size: 12px; color: var(--muted); margin: 2px 0 0; }
+.error { color: #e07a5f; font-size: 14px; margin: 8px 0 0; }
+.card + .card { margin-top: 12px; }
+.pre { white-space: pre-wrap; margin: 0; }
+.muted { color: var(--muted); }
+.small { font-size: 12px; margin-top: 16px; word-break: break-all; }
+@media (max-width: 520px) { .two { grid-template-columns: 1fr; } }

@@ -1,17 +1,19 @@
 import Banner from "./Banner";
+import { useRoute } from "./router";
+import BountyList from "./pages/BountyList";
+import NewBounty from "./pages/NewBounty";
+import BountyDetail from "./pages/BountyDetail";
 import "./styles.css";
 
 export default function App() {
+  const route = useRoute();
   return (
     <>
       <Banner />
       <main className="wrap">
-        <h1>BCH Bounty Board</h1>
-        <p className="sub">Post a bounty. Collect submissions. Pay every winner in one transaction.</p>
-        <section className="card">
-          <h2>Day 1</h2>
-          <p>Project skeleton. Bounty pages land on day 2.</p>
-        </section>
+        {route.name === "list" && <BountyList />}
+        {route.name === "new" && <NewBounty />}
+        {route.name === "bounty" && <BountyDetail id={route.id} />}
       </main>
     </>
   );
