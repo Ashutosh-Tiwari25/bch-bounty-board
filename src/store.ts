@@ -46,6 +46,62 @@ export function createBounty(input: Omit<Bounty, "id" | "createdAt">): Bounty {
   return bounty;
 }
 
+// --- Submissions -----------------------------------------------------------
+
+export interface Submission {
+  id: string;
+  bountyId: string;
+  handle: string; // creator's name or @handle
+  link: string; // where the work lives
+  address: string; // creator's BCH address, where the prize goes
+  note: string;
+  createdAt: number;
+  // Set by the organizer when picking winners. Sats as a string, or undefined if not a winner.
+  awardSats?: string;
+}
+
+const SUB_KEY = "bch-bounty-board:submissions";
+
+function readSubs(): Submission[] {
+  try {
+    const raw = localStorage.getItem(SUB_KEY);
+    return raw ? (JSON.parse(raw) as Submission[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeSubs(list: Submission[]) {
+  try {
+    localStorage.setItem(SUB_KEY, JSON.stringify(list));
+  } catch {
+    // Same as bounties: keep going for this session only.
+  }
+}
+
+export function listSubmissions(bountyId: string): Submission[] {
+  return readSubs()
+    .filter((s) => s.bountyId === bountyId)
+    .sort((a, b) => a.createdAt - b.createdAt);
+}
+
+export function addSubmission(input: Omit<Submission, "id" | "createdAt" | "awardSats">): Submission {
+  const sub: Submission = { ...input, id: Math.random().toString(36).slice(2, 10), createdAt: Date.now() };
+  writeSubs([...readSubs(), sub]);
+  return sub;
+}
+
+/** Set (or clear, with undefined) the award for one submission. */
+export function setAward(submissionId: string, awardSats: bigint | undefined) {
+  writeSubs(
+    readSubs().map((s) => (s.id === submissionId ? { ...s, awardSats: awardSats === undefined ? undefined : awardSats.toString() } : s)),
+  );
+}
+
+export function winnersOf(bountyId: string): Submission[] {
+  return listSubmissions(bountyId).filter((s) => s.awardSats && BigInt(s.awardSats) > 0n);
+}
+
 // --- Amount helpers --------------------------------------------------------
 
 export const SATS_PER_BCH = 100_000_000n;

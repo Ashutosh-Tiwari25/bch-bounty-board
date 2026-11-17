@@ -57,3 +57,20 @@ h1 { margin: 0 0 6px; font-size: 26px; }
 .muted { color: var(--muted); }
 .small { font-size: 12px; margin-top: 16px; word-break: break-all; }
 @media (max-width: 520px) { .two { grid-template-columns: 1fr; } }
+
+/* --- Day 3: submissions and winners --- */
+.subs { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 10px; }
+.sub { display: flex; gap: 16px; justify-content: space-between; align-items: flex-start; border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+.sub.winner { border-color: var(--accent); background: #10241c; }
+.sub-main { min-width: 0; flex: 1; }
+.sub-top { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.sub-note { margin: 4px 0 0; font-size: 14px; }
+.sub-addr { display: block; font-size: 11px; color: var(--muted); margin-top: 6px; word-break: break-all; }
+.sub-award { display: grid; gap: 4px; width: 130px; flex-shrink: 0; }
+.sub-award label { font-size: 11px; color: var(--muted); }
+.sub-award input { width: 100%; box-sizing: border-box; background: #0b0e0c; color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: 8px; font: inherit; }
+.tiny { font-size: 11px; margin: 0; }
+.small-inline { font-size: 13px; }
+.payout-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+@media (max-width: 520px) { .sub { flex-direction: column; } .sub-award { width: 100%; } }

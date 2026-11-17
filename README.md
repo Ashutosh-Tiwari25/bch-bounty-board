@@ -18,7 +18,7 @@ npm run dev
 
 - [x] Day 1: repo, spec, skeleton with BLAZE banner
 - [x] Day 2: bounty create, list and detail pages
-- [ ] Submissions and winner selection
+- [x] Day 3: submissions, winner picking with per-winner amounts
 - [ ] One-transaction payout via WizardConnect
 - [ ] Mainnet payout
 - [ ] Results page and deploy
